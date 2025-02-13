@@ -12,7 +12,7 @@ class _GruposScreenState extends State<GruposScreen> {
   bool isLoading = true;
 
   Future<void> _carregarGrupos() async {
-    final response = await http.get(Uri.parse('http://localhost:5000/api/jogadores/grupos?numGrupos=4'));
+    final response = await http.get(Uri.parse('http://localhost:5000/api/jogadores/grupos?numGrupos=2'));
     if (response.statusCode == 200) {
       setState(() {
         grupos = json.decode(response.body);
