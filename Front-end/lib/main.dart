@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'screens/cadastro_jogador.dart';
 import 'screens/grupos_screen.dart';
+import 'screens/agendamento_partidas.dart'; // Importe a nova tela
 
 void main() {
   runApp(MyApp());
@@ -29,6 +30,7 @@ class _HomeScreenState extends State<HomeScreen> {
   final List<Widget> _telas = [
     CadastroJogadorScreen(),
     GruposScreen(),
+    AgendamentoPartidasScreen(), // Adicione a tela de agendamento
   ];
 
   // Função para atualizar o índice da tela
@@ -53,6 +55,10 @@ class _HomeScreenState extends State<HomeScreen> {
           BottomNavigationBarItem(
             icon: Icon(Icons.group),
             label: 'Grupos',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.schedule), // Ícone para agendamento
+            label: 'Agendar', // Rótulo para agendamento
           ),
         ],
       ),
