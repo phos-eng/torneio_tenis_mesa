@@ -23,4 +23,14 @@ router.get('/jogadores', async (req, res) => {
   }
 });
 
+router.get('/jogadores/grupos', async (req, res) => {
+    const { numGrupos } = req.query;
+    try {
+      const grupos = await Jogador.distribuirEmGrupos(Number(numGrupos));
+      res.status(200).json(grupos);
+    } catch (error) {
+      res.status(500).json({ error: 'Erro ao distribuir jogadores em grupos' });
+    }
+  });
+
 module.exports = router;

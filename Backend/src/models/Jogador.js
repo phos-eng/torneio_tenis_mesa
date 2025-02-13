@@ -16,6 +16,19 @@ const Jogador = {
     const { rows } = await pool.query('SELECT * FROM jogadores;');
     return rows;
   },
+
+  async distribuirEmGrupos(numGrupos) {
+    const { rows } = await pool.query('SELECT * FROM jogadores ORDER BY ranking DESC;');
+    const grupos = Array.from({ length: numGrupos }, () => []);
+
+    rows.forEach((jogador, index) => {
+      const grupoIndex = index % numGrupos;
+      grupos[grupoIndex].push(jogador);
+    });
+
+    return grupos;
+  },
 };
+
 
 module.exports = Jogador;
