@@ -1,12 +1,13 @@
 const express = require('express');
 const cors = require('cors');
+const jogadorRoutes = require('./src/routes/jogadorRoutes');
+
 const app = express();
 app.use(cors());
 app.use(express.json());
 
-app.get('/', (req, res) => {
-  res.send('API do Torneio de Tênis de Mesa!');
-});
+// Rotas
+app.use('/api', jogadorRoutes);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
